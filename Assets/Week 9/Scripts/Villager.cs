@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,6 +12,13 @@ public class Villager : MonoBehaviour
     bool clickingOnSelf;
     bool isSelected;
     public GameObject highlight;
+    public enum ChestType
+    {
+        Villager,
+        Merchant,
+        Archer,
+        Thief
+    }
 
     protected Vector2 destination;
     Vector2 movement;
@@ -83,5 +91,10 @@ public class Villager : MonoBehaviour
     protected virtual void Attack()
     {
         animator.SetTrigger("Attack");
+    }
+
+    public virtual ChestType CanOpen()
+    {
+        return ChestType.Villager;
     }
 }
