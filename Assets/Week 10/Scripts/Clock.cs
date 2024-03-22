@@ -19,6 +19,5 @@ public class Clock : MonoBehaviour
     {
         time += Time.deltaTime * speed;
         time = time % 60;
-
     }
 }
