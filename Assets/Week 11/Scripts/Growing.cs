@@ -15,6 +15,7 @@ public class Growing : MonoBehaviour
     public int running;
     Coroutine coroutine;
 
+    bool Circlerunning = true;
     void Start()
     {
         StartCoroutine(GrowingShapes());
@@ -66,22 +67,25 @@ public class Growing : MonoBehaviour
     IEnumerator Circle()
     {
         running += 1;
-        float size = 0;
-        while (size < 5)
-        {
-            size += Time.deltaTime;
-            Vector3 scale = new Vector3(size, size, size);
-            circle.transform.localScale = scale;
-            circleTMP.text = "Cirlce: " + scale;
-            yield return null;
-        }
-        while (size > 0)
-        {
-            size -= Time.deltaTime;
-            Vector3 scale = new Vector3(size, size, size);
-            circle.transform.localScale = scale;
-            circleTMP.text = "Cirlce: " + scale;
-            yield return null;
+        while (Circlerunning)
+            {
+            float size = 0;
+            while (size < 5)
+            {
+                size += Time.deltaTime;
+                Vector3 scale = new Vector3(size, size, size);
+                circle.transform.localScale = scale;
+                circleTMP.text = "Cirlce: " + scale;
+                yield return null;
+            }
+            while (size > 0)
+            {
+                size -= Time.deltaTime;
+                Vector3 scale = new Vector3(size, size, size);
+                circle.transform.localScale = scale;
+                circleTMP.text = "Cirlce: " + scale;
+                yield return null;
+            }
         }
         running -= 1;
     }
