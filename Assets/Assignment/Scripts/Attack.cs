@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-public class Description : MonoBehaviour
+public class Attack : MonoBehaviour
 {
-    public TextMeshProUGUI descriptionText;
+    public float time;
+    public float hitChance;
+    public float damage;
+    public float charges;
+    public float element;
+
     // Start is called before the first frame update
     void Start()
     {
