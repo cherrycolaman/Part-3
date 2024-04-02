@@ -8,8 +8,7 @@ public class Attack : MonoBehaviour
     public float hitChance;
     public float damage;
     public float charges;
-    public float element;
-
+    public int element;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +19,16 @@ public class Attack : MonoBehaviour
     void Update()
     {
         
+    }
+    public virtual void Execute()
+    {
+        if ((hitChance + charges*10) > Random.Range(0, 100))
+        {
+            SendMessage("TakeDamage", damage);
+            if (element = enemyType)
+            {
+                
+            }
+        }
     }
 }
