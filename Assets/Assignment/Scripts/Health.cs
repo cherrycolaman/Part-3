@@ -16,8 +16,10 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // player health is reset to 15 when scene loads
         playerHealth = 15;
         sr = GetComponent<SpriteRenderer>();
+        // random enemy type is picked, stats are changed accordingly
         enemyType = Random.Range(0, 2);
         if (enemyType == 0)
         {
@@ -42,8 +44,10 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // player and enemy health are shown on screen
         health1.text = playerHealth.ToString();
         health2.text = enemyHealth.ToString();
+        // if enemy dies, load victory sceen. if player dies, load game over screen
         if (enemyHealth < 1)
         {
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
